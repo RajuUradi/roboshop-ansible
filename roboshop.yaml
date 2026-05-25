@@ -25,9 +25,9 @@
     loop: "{{instances1}}"
     register: ec2_output  
 
-  - name:   print ec2_output
-    ansible.builtin.debug:
-     msg: "{{ec2_output}}"
+ # - name:   print ec2_output
+  #  ansible.builtin.debug:
+  #   msg: "{{ec2_output}}"
 
 # Create Route53 record 
 
@@ -40,5 +40,5 @@
      ttl: 1
      value: "{{item.instances[0].public_ip_address}}"
      wait: true
-    loop: "{{ec2_output.result}}" # list
+    loop: "{{ec2_output.results}}" # list
       
