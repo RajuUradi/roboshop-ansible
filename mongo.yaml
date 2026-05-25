@@ -14,7 +14,7 @@
      state: present
 
   - name: allow remote connections
-    ansbible.builtin.replace:
+    ansible.builtin.replace:
      path: /etc/mongod.conf
      regexp: 127.0.0.1  # local host IP
      replace: 0.0.0.0 # all internet 
