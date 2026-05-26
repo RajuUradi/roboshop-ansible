@@ -43,3 +43,5 @@
      overwrite: true                                     # to override if new IP comes
     loop: "{{ec2_output.results}}"                       # list
       
+#item.item → service name (mongodb, catalogue)
+#item.instances[0].public_ip_address → EC2 public IP
