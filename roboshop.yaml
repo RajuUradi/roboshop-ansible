@@ -25,16 +25,16 @@
     loop: "{{instances1}}"
     register: ec2_output  
 
- # - name:   print ec2_output
-  #  ansible.builtin.debug:
-  #   msg: "{{ec2_output}}"
+  - name:   print ec2_output
+    ansible.builtin.debug:
+     msg: "{{ec2_output}}"
 
 # Create Route53 record 
 
   - name: create R53 record
     amazon.aws.route53:
      state: present
-     zone: "{{domain_name}}" 
+     zone: "{{domain_name}}" #learnawsdevops.online
      record:  "{{item.item}}-{{envr}}.{{domain_name}}"  # mongodb-dev.daws88s.online,
      type: A
      ttl: 1
