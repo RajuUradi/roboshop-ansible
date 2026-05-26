@@ -38,7 +38,7 @@
       src:  /tmp/user.zip
       dest: /app
       remote_src: yes 
-   # remote_src: yes is used when the source file already exists on the remote server.
+   # "remote_src: yes"  is used when the source file already exists on the remote server.
    # file already existed because it already copied to /tmp/user.zip in previous task
    # unarchieve task fails if file already exists 
 
