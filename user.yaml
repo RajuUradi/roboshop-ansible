@@ -28,7 +28,7 @@
       path: /app
       state: directory 
 
-   - name: download coide from external source
+   - name: download code from external source
      ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip 
       dest: /tmp/user.zip
