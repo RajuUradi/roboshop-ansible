@@ -34,12 +34,12 @@
   - name: create R53 record
     amazon.aws.route53:
      state: present
-     zone: "{{domain_name}}" #learnawsdevops.online
+     zone: "{{domain_name}}"                            # learnawsdevops.online
      record:  "{{item.item}}-{{envr}}.{{domain_name}}"  # mongodb-dev.daws88s.online,
      type: A
      ttl: 1
-     value: "{{item.instances[0].public_ip_address}}" #instances is from ec2_output 
+     value: "{{item.instances[0].public_ip_address}}"   # instances is from ec2_output 
      wait: true
-     overwrite: true
-    loop: "{{ec2_output.results}}" # list
+     overwrite: true                                     # to override if new IP comes
+    loop: "{{ec2_output.results}}"                       # list
       

@@ -21,8 +21,8 @@
 
    - name: delete app directory  # used for version change
      ansible.builtin.file:
-     path: /app
-     state: absent
+      path: /app
+      state: absent
 
    - name: create app directory 
      ansible.builtin.file:
