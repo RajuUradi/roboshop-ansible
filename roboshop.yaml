@@ -40,5 +40,6 @@
      ttl: 1
      value: "{{item.instances[0].public_ip_address}}" #instances is from ec2_output 
      wait: true
+     overwrite: true
     loop: "{{ec2_output.results}}" # list
       
