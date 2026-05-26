@@ -1,5 +1,5 @@
 - name: create EC2 instance
-  hosts: all
+  hosts: local
   connection: local
 
   vars:

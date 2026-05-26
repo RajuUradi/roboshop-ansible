@@ -1,0 +1,60 @@
+- name: configure user server
+  hosts: user
+  become: yes
+
+  tasks:
+   - name: enable nodejs module/version 20
+     ansible.builtin.command: dnf module enable nodejs:20 -yes
+
+   - name: install nodejs
+     ansible.builtin.dnf:
+      name: nodejs
+      state: present
+
+   - name: create user
+     ansible.builtin.user:
+      name: roboshop
+      home: /app
+      shell: /sbin/nologin  
+      comment: "roboshop user "   
+
+   - name: delete app directory    # useful for version change /app code change  
+     ansible.builtin.file:
+      path: /app
+      state: absent
+
+   - name: create app directory
+     ansible.builtin.file:
+      path: /app
+      state: present
+
+   - name: download coide from external source
+     ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip 
+      dest: /tmp/user.zip
+
+   - name: unarchive code
+     ansible.builtin.unarchive:
+      src:  /tmp/user.zip
+      dest: /app
+      remote_src: yes 
+   # remote_src: yes is used when the source file already exists on the remote server.
+   # file already existed because it already copied to /tmp/user.zip in previous task
+   # unarchieve task fails if file already exists 
+
+   - name: install dependencies
+     community.general.npm:
+      path: /app
+  
+   - name: systemd setup / service setup in systemd
+     ansible.builtin.copy:
+      src: user.service
+      dest: /etc/systemd/system/user.service
+
+   - name: start service
+     ansible.builtin.service:
+      name: user
+      state: restarted
+      enabled: yes   
+
+   
