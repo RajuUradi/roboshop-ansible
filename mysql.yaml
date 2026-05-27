@@ -21,7 +21,12 @@
      wait_for:
       host: mysql-dev.learnawsdevops.online
       port: 3306
-      timeout: 10  
+      timeout: 10 
+     register: mysqld_status
+
+   - name: print success comment if mysqld working 
+     ansible.built.debug:
+      msg: {{mysqld_status.stdout}}
        
  # To check health status of mysqld from other servers (control node)
  # telnet mysql-dev.learnawsdevops.online 3306      
