@@ -30,7 +30,7 @@
       state: directory
 
    - name: download application code from external source  
-     ansible,builtin.get_url:
+     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
       dest: /tmp/cart.zip
       
