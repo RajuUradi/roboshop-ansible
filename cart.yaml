@@ -38,7 +38,7 @@
      ansible.builtin.unarchive:
       path: /tmp/cart.zip 
       dest: /app
-        
+      remote_src: yes 
 
    - name: install the dependencies
      community.general.npm:
