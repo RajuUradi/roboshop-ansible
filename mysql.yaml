@@ -16,4 +16,12 @@
 
    - name: change root password
      ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
+
+   - name: Verify MySQL is reachable 
+     wait_for:
+      host: mysql-dev.learnawsdevops.online
+      port: 3306
+      timeout: 10  
        
+ # To check health status of mysqld from other servers (control node)
+ # telnet mysql-dev.learnawsdevops.online 3306      
