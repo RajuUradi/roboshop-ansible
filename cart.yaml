@@ -35,17 +35,15 @@
       dest: /tmp/cart.zip
       
    - name: unzip/extract the downloaded code
-     ansible.builtin.archive:
+     ansible.builtin.unarchive:
       path: /tmp/cart.zip 
       dest: /app
-     args:
-      chdir: /app   
+        
 
    - name: install the dependencies
      community.general.npm:
       path: /app
-     args:
-      chdir: /app 
+       
 
    - name: setup the service in systemd
      ansible.builtin.template:
