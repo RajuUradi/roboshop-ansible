@@ -25,7 +25,7 @@
      register: mysqld_status
 
    - name: print success comment if mysqld working 
-     ansible.built.debug:
+     ansible.builtin.debug:
       msg: "{{mysqld_status.stdout}}"
        
  # To check health status of mysqld from other servers (control node)
