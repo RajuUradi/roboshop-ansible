@@ -66,3 +66,7 @@
       name: payment
       state: started
       enabled: yes
+
+
+# telnet payment-dev.learnawsdevops.online 8080
+ #curl http://payment-dev.learnawsdevops.online:8080/health
