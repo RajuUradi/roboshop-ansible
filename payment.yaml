@@ -47,10 +47,9 @@
 
    - name: install dependencies
      ansible.builtin.pip:
-      requirements: requirements.txt
+      requirements: /app/requirements.txt  #requirements.txt will install in /app 
       executable: pip3.9
-     args:
-      chdir: /app
+     
 
    - name: setup payment service in systemd
      ansible.builtin.template:
