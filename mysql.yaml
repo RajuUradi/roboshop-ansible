@@ -26,7 +26,7 @@
 
    - name: print success comment if mysqld working 
      ansible.builtin.debug:
-      msg: "{{mysqld_status.stdout}}"
+      msg: "{{mysqld_status}}"
        
  # To check health status of mysqld from other servers (control node)
  # telnet mysql-dev.learnawsdevops.online 3306      
