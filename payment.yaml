@@ -36,12 +36,12 @@
 
    - name: download the code from external location
      ansible.builtin.get_url:
-      url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
-      dest: /tmp/catalogue.zip
+      url: https://roboshop-artifacts.s3.amazonaws.com/payment-v3.zip 
+      dest: /tmp/payment.zip
 
-   - name: unarchieve catalogue
+   - name: unarchieve payment
      ansible.builtin.unarchive:
-      src: /tmp/catalogue.zip
+      src: /tmp/payment.zip
       dest: /app
       remote_src: yes
 
