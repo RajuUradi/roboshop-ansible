@@ -1,4 +1,5 @@
-# ansible-playbook -i inventory.ini   -e '{"instances1":["user"]}' roboshop.yaml
+# ansible-playbook -i inventory.ini   -e '{"instances1":["user"]}' roboshop.yaml  #JSON format
+# ansible-playbook -i inventory.ini  -e  "instances1=['cart','shipping','mysql']"  roboshop.yaml 
 - name: create EC2 instance
   hosts: localhost
   connection: local
